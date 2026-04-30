@@ -1,45 +1,33 @@
-usuario = (input("Ingrese el tipo de usuario (Estudiante, Adulto, Adulto Mayor): "))
-horario = (input("Horario del viaje (Normal, Punta): "))
+# Mensaje de bienvenida al supermercado
+print('''    
+    Supermercado La Fama
+------------------------------
+        Bienvenidos
+        ''')
 
-if usuario=="estudiante" :
-    if horario == "normal" :
-        print("La tarifa a pagar será de: $490")
-    elif horario == "punta" :
-        print("La tarifa a pagar será de $590")
+# Se desea crear un sistema que permita determinar el descuento que tendrá un cliente en su compra dependiendo de su edad, estado civil y si es socio del supermercado.
 
-if usuario == "adulto" :
-    if horario == "normal" :
-        print("La tarifa a pagar será de $790")
-    elif horario == "punta" :
-        print("La tarifa a pagar será de $890")
+monto=int(input("Ingrese monto: "))
+edad=int(input("Ingrese edad: "))
+estadocivil=input("Ingrese estado civil: ")
+sociocheck=input("¿Eres Socio de FamaClub? (S/N): ")
 
-if usuario == 'adulto mayor' :
-    if horario == 'normal' :
-        print("La tarifa a pagar será de $390")
-    elif horario == 'punta' :
-        print("La tarifa a pagar será de $490")
-print("Gracias por viajar con nosotros")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Preguntar si el tipo es mayor de 70 y si es soltero/viudo
+if edad > 70 :
+    if estadocivil == "soltero" or estadocivil == "viudo" :
+        descuento = monto * 0.15
+    elif estadocivil == "casado" or estadocivil == "divorciado":
+        descuento = monto * 0.10
+    print(f"Tu monto a pagar: ${monto-descuento}")
+    print(f"Tu descuento fue: ${descuento}")
+if edad >= 25 and edad <= 69:
+    if estadocivil == "soltero" or estadocivil == "viudo":
+        descuento = monto * 0.05
+    elif estadocivil == "casado" or estadocivil == "divorciado":
+        descuento = monto * 0.03
+    print(f"Tu monto a pagar: ${monto-descuento}")
+    print(f"Tu descuento fue: ${descuento}")
+if sociocheck == "S":
+    descuento += monto * 0.08
+    print(f"Tu monto a pagar: ${monto-descuento}")
+    print(f"Tu descuento fue: ${descuento}")
